@@ -27,6 +27,7 @@ for k, v in sd.items():
         hf_sd[k2].copy_(v)
 
 hf_model.load_state_dict(hf_sd)
+hf_config.n_ctx = hf_config.n_positions
 hf_model.save_pretrained("/workspace/outputs/hf-nanogpt")
 
 tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
