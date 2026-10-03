@@ -5,11 +5,9 @@ services:
       dockerfile: Trainer.docker
     container_name: ollama-training
     volumes:
-      - /Work/lumen/data/trainer/scripts:/workspace/scripts
       - /Work/lumen/data/trainer/data:/workspace/data
       - /Work/lumen/data/trainer/outputs:/workspace/outputs
       - /Work/lumen/data/trainer/cache/huggingface:/root/.cache/huggingface
-      - /Work/lumen/data/trainer/llama.cpp:/workspace/llama.cpp
     deploy:
       resources:
         reservations:

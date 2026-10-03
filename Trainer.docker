@@ -11,12 +11,16 @@ WORKDIR /workspace
 RUN pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cu121
 
 RUN pip install --no-cache-dir \
-    transformers \
-    peft \
-    trl \
+    transformers==4.57.1 \
+    tokenizers==0.22.1 \
+    peft==0.13.2 \
+    trl==0.12.0 \
     datasets \
     accelerate \
     sentencepiece \
     protobuf
+
+WORKDIR /workspace/scripts/
+COPY ./temp/my-trainer/* /workspace/scripts/
 
 CMD ["/bin/bash"]
