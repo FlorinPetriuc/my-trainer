@@ -1,0 +1,10 @@
+services:
+  convert:
+    build:
+      context: .
+      dockerfile: Converter.docker
+    container_name: ollama-converter
+    volumes:
+      - /Work/lumen/data/trainer/outputs:/workspace/outputs
+    stdin_open: true
+    tty: true
