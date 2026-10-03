@@ -1,0 +1,18 @@
+services:
+  pretrain:
+    build:
+      context: .
+      dockerfile: Pretrain.docker
+    container_name: ollama-pretraining
+    volumes:
+      - /Work/lumen/data/pretrainer/data:/workspace/data-shakespeare
+      - /Work/lumen/data/pretrainer/out:/workspace/out-shakespeare-bpe
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    stdin_open: true
+    tty: true
