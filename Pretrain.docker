@@ -14,8 +14,11 @@ RUN pip install --no-cache-dir \
     numpy \
     tiktoken \
     tqdm \
-    requests
+    requests \
+    transformers==4.57.1
 
 RUN git clone --depth 1 https://github.com/karpathy/nanoGPT /workspace/nanoGPT
+RUN mkdir -p /workspace/scripts
+COPY ./temp/my-trainer/export_to_hf.py /workspace/scripts
 
 CMD ["/bin/bash"]
